@@ -26,7 +26,7 @@ do_get_overlap      = True
 do_gen_tex          = True
 
 # make directory structure
-os.path.makedirs('beamspot_images', exists_ok=True)
+os.makedirs('beamspot_images', exists_ok=True)
 
 # check exposures -------------------------------------------------------------
 if do_check_exposures or do_all:
