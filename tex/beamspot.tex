@@ -1,0 +1,97 @@
+\documentclass{article}
+\title{Beamspot Analysis Summary}
+\author{Derek Fujimoto}
+\date{\today}
+
+% Load Packages
+\usepackage{graphicx}                % drawing
+\usepackage{amsmath}                 % math
+\usepackage{amssymb}                 % math
+\usepackage{here}                    % force figure location with "H"
+\usepackage{fancyhdr}                % fancy header lines
+\usepackage{subcaption}              % \begin{subfigure}[t]{\textwidth}
+\usepackage{url}                     % \url{}
+\usepackage{enumitem}	             % \begin{itemize}[noitemsep]
+\usepackage{pdflscape}	             % rotate page horizontal with \begin{landscape} \hspace{0pt} \vfill
+\usepackage[labelfont=bf]{caption}   % "figure" and "table" bold font
+\usepackage[unicode,colorlinks=true,allcolors=blue]{hyperref} % colored references and citations
+\usepackage{cleveref}                % include reference type with \cref or \Cref
+\usepackage[version=4]{mhchem}       % chemistry notation using \ce
+\usepackage{siunitx}
+\usepackage[nopostdot,nomain,acronym,toc,style=super]{glossaries}
+\usepackage{booktabs}
+
+%\input acronyms.tex
+
+% bibliography
+\usepackage[sorting=none,
+            autocite=superscript,
+            backend=bibtex,
+            natbib=true,
+            url=false,
+            doi=false,
+            style=phys
+	    ]{biblatex}
+\addbibresource{/home/fuji/Documents/Research/Papers/library.bib}
+
+% don't break inline equations
+\relpenalty=9999
+\binoppenalty=9999
+
+% Declare new unit types
+\DeclareSIUnit\counts{\text{counts}}
+\DeclareSIUnit\ppm{\text{ppm}}
+\DeclareSIUnit\mb{\milli\barn}
+\DeclareSIUnit\mT{\milli\tesla}
+
+% Customize citation commands
+\newcommand{\authorcite}[2][]{\citeauthor{#2}#1\supercite{#2}}
+\renewcommand{\cite}[1]{\supercite{#1}}
+
+% Set Margins
+\oddsidemargin -0.2in
+\textwidth 6.75in
+\topmargin -1.5in
+\textheight 9in
+\columnsep 0.25in
+
+% Set Header
+\setlength{\headheight}{80pt}
+\pagestyle{fancy}
+\lhead{Derek Fujimoto}
+\rhead{University of British Columbia}
+
+% caption widths
+\captionsetup[subfigure]{width=0.9\textwidth}
+
+% Custom Commands
+\newcommand{\QED}{\begin{flushright}Q.E.D.\end{flushright}}
+\newcommand{\bnmr}{$\beta$-NMR}
+\newcommand{\bnqr}{$\beta$-NQR}
+\newcommand{\elip}{$^8$Li$^+$}
+\newcommand{\eli}{$^8$Li}
+\newcommand{\lip}{Li$^+$}
+
+\begin{document}
+
+\maketitle
+
+Automatically generated from \texttt{gen\_tex.py}.
+
+\input body.tex
+
+%\begin{figure}[ht]
+%    \centering
+%    \includegraphics[keepaspectratio=true,width=\textwidth,trim= 0cm 0cm 0cm 0cm, clip=true]{}
+%    \caption{}
+%    \label{}
+%\end{figure}
+
+% trim: l b r t
+
+\printbibliography
+%\appendix
+%\onecolumn
+%\input appendix.tex
+
+\end{document}
