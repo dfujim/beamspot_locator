@@ -5,20 +5,7 @@
 import os
 import pandas as pd
 import numpy as np
-
-# images filenames
-all_images_file = 'images.csv'
-
-# where the images are stored
-local_dir = os.path.join(os.environ['HOME'], '.bccd', 'bnmr@bnmrexp.triumf.ca', '2022-Jul')
-
-spot_file = 'beamspots.csv'         # save beamspot parameters here
-bs_fit_img_dir = 'beamspot_images'  # save beamspot fit images here
-tex_dir = 'tex'                     # save tex files here
-
-# image processing values
-black = 3.8
-white = None
+from datetime import datetime
 
 # sample position (circle)
 reference_image = "210815\_1415\_cryofixed"
@@ -26,6 +13,23 @@ x0 = 168.188
 y0 = 267.080
 r  = 8.536
 
+# image processing values
+black = 3.8
+white = None
+
+# images filenames
+all_images_file = 'images.csv'
+
+# where the images are stored
+year = datetime.now().year
+month = datetime.now().strftime('%b')
+local_dir = os.path.join(os.environ['HOME'], '.bccd', 'bnmr@bnmrexp.triumf.ca', f'{year}-{month}')
+
+spot_file = 'beamspots.csv'         # save beamspot parameters here
+bs_fit_img_dir = 'beamspot_images'  # save beamspot fit images here
+tex_dir = 'tex'                     # save tex files here
+
+# set spot shape functions for integration (circular)
 ylo = y0-r
 yhi = y0+r
 
